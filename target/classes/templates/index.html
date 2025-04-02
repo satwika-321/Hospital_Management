@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hospital Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-4">Patients List</h1>
+        <a th:href="@{/add}" class="btn btn-primary mb-3">Add Patient</a>
+        <form th:action="@{/search}" method="get" class="form-inline mb-3">
+            <input type="number" name="id" class="form-control mr-2" placeholder="Search by ID" />
+            <button type="submit" class="btn btn-secondary">Search</button>
+        </form>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Mobile No</th>
+                    <th>Medical Issue</th>
+                    <th>Registration Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="patient : ${patients}">
+                    <td th:text="${patient.id}"></td>
+                    <td th:text="${patient.name}"></td>
+                    <td th:text="${patient.mobileNo}"></td>
+                    <td th:text="${patient.medicalIssue}"></td>
+                    <td th:text="${patient.registrationDate}"></td>
+                    <td>
+                        <a th:href="@{/update/{id}(id=${patient.id})}" class="btn btn-warning btn-sm">Update</a>
+                        <a th:href="@{/delete/{id}(id=${patient.id})}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

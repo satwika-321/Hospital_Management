@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Patient</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-4">Add Patient</h1>
+        <form action="/add" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="mobileNo">Mobile No:</label>
+                <input type="text" id="mobileNo" name="mobileNo" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="medicalIssue">Medical Issue:</label>
+                <input type="text" id="medicalIssue" name="medicalIssue" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="registrationDate">Registration Date:</label>
+                <input type="date" id="registrationDate" name="registrationDate" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Add Patient</button>
+        </form>
+    </div>
+</body>
+
+</html>
